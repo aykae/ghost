@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Card, CardContent, Typography, Divider, Button, useTheme } from '@mui/material';
 import { Policy } from '../entities';
+import { buyPolicy } from '../hooks/buy-policy';
 
 interface LargePolicyCardProps {
   policy: Policy;
@@ -9,9 +10,8 @@ interface LargePolicyCardProps {
 export const LargePolicyCard: React.FC<LargePolicyCardProps> = ({ policy }) => {
   const theme = useTheme();
 
-   const handleBuyClick = () => {
-      console.log("Buy button clicked");
-      // Add your logic here for purchasing policy
+   const handleBuyClick = async () => {
+      const bought = await buyPolicy(policy.id);
    };
 
   return (

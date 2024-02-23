@@ -8,7 +8,7 @@ const policy: Policy = {
   premium: 100,
   policyHolders: 3,
   capitalSum: 10000,
-  health: 70,
+  health: 60,
 };
 
 export const Main: React.FC = () => {
