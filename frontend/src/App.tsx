@@ -3,6 +3,8 @@ import './App.css'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import Home from './Home'
+import './App.css';
+import Router from './router';
 
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
@@ -20,4 +22,6 @@ function App() {
   )
 }
 
-export default App
+
+
+export default App;
