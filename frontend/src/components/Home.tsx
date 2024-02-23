@@ -1,9 +1,6 @@
-import React from 'react'
+import { PolicyCard } from '../components';
 
-import PolicyCard from './PolicyCard';
-
-function Home() {
-     
+export const Home: React.FC = () => {
   return (
     <main className='main-container'>
         <div className='main-title'>
@@ -41,5 +38,3 @@ function Home() {
     </main>
   )
 }
-
-export default Home

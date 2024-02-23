@@ -1,9 +1,12 @@
+import { Header, Home } from '../../components';
+
 const HomePage: React.FC = () => {
-   return (
-      <div>
-         <h2>Example Component</h2>
-      </div>
-   );
+  return (
+    <div className='grid-container'>
+      <Header />
+      <Home />
+    </div>
+  )
 };
 
 export default HomePage;

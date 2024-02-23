@@ -8,7 +8,7 @@ interface PolicyCardProps {
     health: number; // This could also be a number or a specific set of values, adjust as necessary
   }
 
-const PolicyCard: React.FC<PolicyCardProps> = ({ policy, estimatedClaim, policyHolders, capitalPooled, health }) => {
+export const PolicyCard: React.FC<PolicyCardProps> = ({ policy, estimatedClaim, policyHolders, capitalPooled, health }) => {
   return (
     <div className="policy-card">
       <h3>{policy}</h3>
@@ -27,5 +27,3 @@ const PolicyCard: React.FC<PolicyCardProps> = ({ policy, estimatedClaim, policyH
     </div>
   );
 };
-
-export default PolicyCard;
