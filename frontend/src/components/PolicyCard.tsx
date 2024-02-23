@@ -1,29 +1,24 @@
-import React from 'react';
+import { Policy } from '../entities';
+import { Card, CardContent, Divider, Typography } from '@mui/material';
+import { getHealthColor } from '../utils/HealthColor';
 
-interface PolicyCardProps {
-    policy: string;
-    estimatedClaim: string; // Assuming this is a string, but adjust the type as necessary (e.g., number)
-    policyHolders: number;
-    capitalPooled: string; // Assuming this is a string, but adjust as necessary
-    health: number; // This could also be a number or a specific set of values, adjust as necessary
-  }
-
-export const PolicyCard: React.FC<PolicyCardProps> = ({ policy, estimatedClaim, policyHolders, capitalPooled, health }) => {
+export const PolicyCard: React.FC<Policy> = ({ id, estimatedClaim, premium, policyHolders, capitalSum, health }) => {
   return (
-    <div className="policy-card">
-      <h3>{policy}</h3>
-      <div className="policy-detail">
-        <strong>Estimated Claim:</strong> {estimatedClaim}
-      </div>
-      <div className="policy-detail">
-        <strong>Policy Holders:</strong> {policyHolders}
-      </div>
-      <div className="policy-detail">
-        <strong>Capital Pooled:</strong> {capitalPooled}
-      </div>
-      <div className="policy-detail">
-        <strong>Health:</strong> {health}
-      </div>
-    </div>
+    <Card>
+      <CardContent>
+        <Typography variant="h5" component="div">
+          {id}
+        </Typography>
+        <Divider />
+        <Typography variant="body1">Estimated Claim: {estimatedClaim}</Typography>
+        <Typography variant="body1">Premium: {premium}</Typography>
+        <Typography variant="body1">Policy Holders: {policyHolders}</Typography>
+        <Typography variant="body1">Capital Sum: {capitalSum}</Typography>
+        <Typography variant="body1" style={{ display: 'flex', alignItems: 'center' }}>
+          Health: 
+          <div style={{ marginLeft: '10px', height: '10px', backgroundColor: getHealthColor(health), width: `${health}%` }}></div>
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };

@@ -1,10 +1,10 @@
-import { Header, Home } from '../../components';
+import { Header, Main } from '../../components';
 
 const HomePage: React.FC = () => {
   return (
-    <div className='grid-container'>
+    <div>
       <Header />
-      <Home />
+      <Main />
     </div>
   )
 };

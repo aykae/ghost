@@ -4,7 +4,7 @@ export interface Policy {
    premium: number;
    policyHolders: number;
    capitalSum: number;
-   health?: string;
+   health: number;
 };
 
 export default Policy;

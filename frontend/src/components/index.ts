@@ -1,3 +1,3 @@
 export * from './Header';
-export * from './Home';
+export * from './Main';
 export * from './PolicyCard';
