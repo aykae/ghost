@@ -1,5 +1,5 @@
 export interface Policy {
-   id: number;
+   id: string;
    estimatedClaim: number;
    premium: number;
    policyHolders: number;
