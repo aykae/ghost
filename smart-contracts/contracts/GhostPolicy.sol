@@ -9,6 +9,8 @@ contract GhostPolicy {
     address public factory;
     address public creator;
     uint public fee;
+    uint public minPremium; //TODO: should premiums be global or per policyholder
+    uint public maxPremium; //TODO: should premiums be global or per policyholder
 
     uint public poolTotal;
     uint public health;
@@ -57,12 +59,25 @@ contract GhostPolicy {
         return health;
     }
 
-    function joinPolicy() external payable {
+    function joinPolicy(uint premium) external payable {
         //TODO:
         // create Policyholder
         // add dependents
         // make first payment
         // set timer for next month
+
+        require(policyholders[msg.sender].isActive == false, "Policyholder already exists");
+        require(msg.value >= minPremium, "Premium payment must be greater than minimum premium");
+        require(msg.value <= maxPremium, "Premium payment must be less than minimum premium");
+        require(msg.value == premium, "Premium payment must be equal to premium");
+
+        policyholders[msg.sender].isActive = true;
+        policyholders[msg.sender].premium = premium; //TODO: how do we set premiums
+        policyholders[msg.sender].premiumTime = block.timestamp + (30 * 24 * 60 * 60);
+        policyholders[msg.sender].balance = 0;
+        policyholders[msg.sender].riskScore = 0;
+
+        numPolicyholders++;
     }
 
     function payPremium() external payable {
