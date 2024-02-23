@@ -4,7 +4,7 @@ import {
     useSDK,
     useSignMessage,
 } from "@metamask/sdk-react-ui";
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 
 function AppReady() {
     const {
@@ -20,7 +20,7 @@ function AppReady() {
     const { isConnected } = useAccount();
 
     return (
-        <AppBar position="static">
+    <AppBar position="static" sx={{ borderRadius: '20px'}} elevation={0}> 
         <Toolbar>
           <Box sx={{ width: '33%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
             <Button color="inherit">All Policies</Button>
@@ -32,7 +32,7 @@ function AppReady() {
             </Typography>
           </Box>
           <Box sx={{ width: '33%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
-          <MetaMaskButton theme={"light"} color="white"></MetaMaskButton>
+          <MetaMaskButton theme={"dark"} color="white"></MetaMaskButton>
                 {isConnected && (
                     <>
                         <div style={{ marginTop: 20 }}>
