@@ -1,9 +1,14 @@
+import { Header, Main } from '../../components';
+import App from '../../components/MetaMask';
+
+
 const HomePage: React.FC = () => {
-   return (
-      <div>
-         <h2>Example Component</h2>
-      </div>
-   );
+  return (
+    <div>
+      <App /> 
+      <Main />
+    </div>
+  )
 };
 
 export default HomePage;
