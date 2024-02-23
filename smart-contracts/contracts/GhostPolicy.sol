@@ -14,7 +14,7 @@ contract GhostPolicy {
     }
 
     function initialize(address _creator) external {
-        require(creator == factory, "Policy already initialized");
+        require(msg.sender == factory, "Policy already initialized");
         creator = _creator;
     }
 
