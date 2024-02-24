@@ -1,0 +1,55 @@
+specVersion: 1.0.0
+description: GhostFactory
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: GhostFactory
+    network: sepolia
+    source:
+      address: "0x0057142698fB40D5BBfa4A1332C05F581D0fF1D2"
+      abi: GhostFactory
+      startBlock: 5351866
+    mapping:
+      kind: ethereum/events
+      aipfs initpiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - PolicyCreated
+      abis:
+        - name: GhostFactory
+          file: ./abis/GhostFactory.json
+      eventHandlers:
+        - event: PolicyCreated(address,address)
+          handler: handlePolicyCreated
+      file: ./src/ghost-factory.ts
+  - kind: ethereum
+    name: GhostPolicy
+    network: sepolia
+    source:
+      address: "0x0f150005E5134F0bC328B16bAE541BC11f110D5d"
+      abi: GhostPolicy
+      startBlock: 5351862
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ClaimCollected
+        - PremiumPaid
+        - Health 
+        - TotalPool
+      abis:
+        - name: GhostPolicy
+          file: ./abis/GhostPolicy.json
+      eventHandlers:
+        - event: ClaimCollected(address,uint256)
+          handler: handleClaimCollected
+        - event: PremiumPaid(address,uint256)
+          handler: handlePremiumPaid
+        - event: HealthUpdated
+          handler: handleHealthUpdated
+        
+      file: ./src/ghost-policy.ts
