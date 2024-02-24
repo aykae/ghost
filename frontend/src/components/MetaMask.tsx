@@ -24,12 +24,6 @@ function MetaMaskReady() {
                 {isConnected && (
                     <>
                         <div style={{ marginTop: 20 }}>
-                            <button
-                                disabled={isSignLoading}
-                                onClick={() => signMessage()}
-                            >
-                                Sign message
-                            </button>
                             {isSignSuccess && <div>Signature: {signData}</div>}
                             {isSignError && <div>Error signing message</div>}
                         </div>

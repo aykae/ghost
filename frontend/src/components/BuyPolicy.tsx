@@ -37,30 +37,40 @@ const CreatePolicyForm = () => {
     <Card sx={{ minWidth: '600px', minHeight: '650px' }}>
       <form onSubmit={handleSubmit}>
         <CardContent>
-          <Typography variant="h5" component="div">Create Policy</Typography>
+          <Typography variant="h5" component="div">Buy Policy</Typography>
           <Divider />
           <TextField
-            label="Estimated Claim"
+            label="First Name"
             variant="outlined"
-            name="estimatedClaim"
-            value={policy.estimatedClaim}
-            onChange={handleChange}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Premium"
-            variant="outlined"
-            name="premium"
+            name="First Name"
             value={policy.premium}
             onChange={handleChange}
             fullWidth
             margin="normal"
           />
           <TextField
-            label="Policy Holders"
+            label="Last Name"
             variant="outlined"
-            name="policyHolders"
+            name="Last Name"
+            value={policy.policyHolders}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+
+        <TextField
+            label="SSN"
+            variant="outlined"
+            name="SSN"
+            value={policy.policyHolders}
+            onChange={handleChange}
+            fullWidth
+            margin="normal"
+          />
+          <TextField
+            label="Dependent's Address"
+            variant="outlined"
+            name="Dependent's Address"
             value={policy.policyHolders}
             onChange={handleChange}
             fullWidth
@@ -68,7 +78,7 @@ const CreatePolicyForm = () => {
           />
         </CardContent>
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
-          <Button type="submit" variant="contained" style={{ borderRadius: '20px' }}>Create Policy</Button>
+          <Button type="submit" variant="contained" style={{ borderRadius: '20px' }}>Purchase Policy</Button>
         </div>
       </form>
     </Card>

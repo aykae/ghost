@@ -52,6 +52,8 @@ export const theme = createTheme({
           color: '#22577A', // text color from the image
           padding: '20px', // padding inside the card
           backgroundColor: '#ffffff', // assuming a white background
+          width: '330px', // constant width of the card
+        height: '300px',
           '& .MuiCardContent-root': { // targeting the card content
             padding: '32px', // padding inside the card content
             '&:last-child': {

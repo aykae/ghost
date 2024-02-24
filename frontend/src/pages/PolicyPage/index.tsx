@@ -3,12 +3,12 @@ import { LargePolicyCard } from '../../components/LargePolicyCard';
 import { Policy } from '../../entities';
 
 const policy: Policy = {
-  id: 'ABC123',
-  estimatedClaim: 5000,
+  id: 'Casper',
+  estimatedClaim: 500000,
   premium: 100,
-  policyHolders: 3,
-  capitalSum: 10000,
-  health: 70,
+  policyHolders: 3000000,
+  capitalSum: 500000000,
+  health: 100,
 };
 
 const HomePage: React.FC = () => {

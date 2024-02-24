@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
             All Policies
           </Button>
           {/* Use Link component to create a clickable link to '/home' */}
-          <Button color="inherit" component={Link} to="/home">
+          <Button color="inherit" component={Link} to="/mypolicy">
             My Policies
           </Button>
           <Button color="inherit" component={Link} to="/createpolicy">

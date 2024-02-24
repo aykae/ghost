@@ -83,6 +83,14 @@ const nearlyHeadlessNick = {
   health: 20
 };
 
+const NewPolicy = {
+    id: 'New Policy',
+    estimatedClaim: 10000,
+    premium: 10,
+    policyHolders: 0,
+    capitalSum: 0,
+    health: 0
+  };
 
 export const Main: React.FC = () => {
   // Add state for list of cards
@@ -99,6 +107,7 @@ export const Main: React.FC = () => {
       <PolicyCard {...beetlejuice} />
       <PolicyCard {...peeves} />
       <PolicyCard {...nearlyHeadlessNick} />
+      <PolicyCard {...NewPolicy} />
         
       </Grid>
     </Container>
