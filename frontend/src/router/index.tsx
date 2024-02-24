@@ -5,6 +5,7 @@ import {
    CREATE_POLICY_PATH
 } from './paths';
 import { HomePage, PolicyPage } from '../pages';
+import CreatePolicyPage from '../pages/CreatePolicyPage.tsx'
 
 const Router: React.FC = () => {
    return (
@@ -12,7 +13,7 @@ const Router: React.FC = () => {
          <Routes>
             <Route path={HOME_PATH} element={<HomePage />} />
             <Route path={POLICY_PATH} element={<PolicyPage />} />
-            <Route path={CREATE_POLICY_PATH} element={<PolicyPage />} />
+            <Route path={CREATE_POLICY_PATH} element={<CreatePolicyPage />} />
             <Route path="/" element={<Navigate replace to={HOME_PATH} />} />
          </Routes>
       </BrowserRouter>
