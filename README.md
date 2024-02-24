@@ -32,6 +32,7 @@ We're applying for Chainlink Bounty 2 (Best usage of Chainlink Functions), Chain
 
 <h2 align="left">Deployed Smart Contract Address 📍</h2>
 1. GhostFactory: 0x0057142698fB40D5BBfa4A1332C05F581D0fF1D2 
+<br>
 2. GhostPolicy: 0x0f150005E5134F0bC328B16bAE541BC11f110D5d
 
 
