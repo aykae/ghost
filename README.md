@@ -4,7 +4,7 @@ Our project is **Ghost Protocol**, an EVM compatible dApp providing life insuran
 
 Here is a link to our tweet, which summarizes our project in a short-form if you would prefer to read it there: 
 
-<h2 align="left">Brief Description</h2>
+<h2 align="left">Brief Description 📖</h2>
 
 We’re all trying to lead great lives, but sometimes unexpected events may cause us to face accidents or terminal illness, leaving our family members without a source of income to provide for them. This is where life insurance becomes valuable, taking care of expenses if anything were to ever happen, a market that 52% of Americans participate in and an industry well worth over $750 Billion. 
 
@@ -20,15 +20,15 @@ We're all currently based in Philadelphia, USA, but fun fact: three of us actual
 <h2 align="left">Technical solution 🤓</h2>
 Our project is based on 
 
-<h2 align="left">Project Theme</h2>
+<h2 align="left">Project Theme 💸</h2>
 Our project falls broadly within a DeFi theme, but we are more specifically doing insurance on-chain and in a way healthcare as well due to life insurance. 
 
-<h2 align="left">Project Bounties</h2>
+<h2 align="left">Project Bounties 🏆</h2>
 We're applying for Chainlink Bounty 2 (Best usage of Chainlink Functions), Chainlink Bounty 3 (Best usage of other Chainlink services), and Graph Bounty 1 (Best New Subgraph). 
 
-<h2 align="left">Slide deck and presentation</h2>
+<h2 align="left">Slide deck and presentation 📹</h2>
 
-<h2 align="left">Deployed Smart Contract Address</h2>
+<h2 align="left">Deployed Smart Contract Address 📍</h2>
 GhostFactory: 0x0057142698fB40D5BBfa4A1332C05F581D0fF1D2
 GhostPolicy: 0x0f150005E5134F0bC328B16bAE541BC11f110D5d
 Ghost
