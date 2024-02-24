@@ -12,23 +12,28 @@ contract GhostFactory {
 
     event PolicyCreated(address policyAddress, address creator);
 
-    function createPolicy(address _creator) external returns (address newPolicy) {
+    function createPolicy() external returns (address newPolicy) {
 
-        require(policyMap[_creator] == address(0), "Policy already exists");
+        //TODO: change based on policy parameters
+        require(policyMap[msg.sender] == address(0), "Policy already exists"); 
 
         //Deterministic policy address creation
         bytes memory bytecode = type(GhostPolicy).creationCode;
-        bytes32 salt = keccak256(abi.encodePacked(_creator));
+        bytes32 salt = keccak256(abi.encodePacked());
         assembly {
             newPolicy := create2(0, add(bytecode, 32), mload(bytecode), salt)
         }
 
-        GhostPolicy(newPolicy).initialize(_creator);
+        GhostPolicy(newPolicy).initialize(msg.sender);
 
-        policyMap[_creator] = newPolicy;
+        policyMap[msg.sender] = newPolicy;
         policies.push(newPolicy);
 
-        emit PolicyCreated(newPolicy, _creator);
+        emit PolicyCreated(newPolicy, msg.sender);
+    }
+
+    function getPolicy() external view returns (address) {
+        return policyMap[msg.sender];
     }
 
 }

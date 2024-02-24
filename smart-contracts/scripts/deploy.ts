@@ -1,4 +1,7 @@
 import { ethers } from "hardhat";
+import { GhostFactory, GhostFactory__factory } from '../typechain-types';
+import ghostFactoryAbi from '../artifacts/contracts/GhostFactory.sol/GhostFactory.json';
+import { Contract } from "ethers";
 
 async function deployLock() {
 	const currentTimestampInSeconds = Math.round(Date.now() / 1000);
@@ -20,6 +23,8 @@ async function deployLock() {
 }
 
 async function deployFactory() {
+	//const [creator0, creator1] = ethers.getSigners();
+
 	const ghostFactory = await ethers.deployContract("GhostFactory");
 	await ghostFactory.waitForDeployment();
 
@@ -29,9 +34,13 @@ async function deployFactory() {
 
 async function main() {
 
+	const [signer0, signer1] = await ethers.getSigners();
 	let ghostFactory = await deployFactory();
 
-	let gf = await ethers.getContractAt("GhostFactory", ghostFactory.target);
+	let gf = new ethers.Contract(ghostFactory.target, ghostFactoryAbi.abi, signer0);
+	await gf.createPolicy();
+	const p0 = await gf.getPolicy();
+	console.log(p0);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
