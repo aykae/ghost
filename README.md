@@ -14,12 +14,29 @@ We also give users the opportunity to make their own policies because we believe
 
 On the front-end, we have used React to 
 
-<h2 align="left">Country/region</h2>
-We're all currently based in Philadelphia, USA. 
+<h2 align="left">Country/region</h2> 🇺🇸/(🇨🇦?)
+We're all currently based in Philadelphia, USA, but fun fact: three of us actually lived in Canada at some point as well!
 
 <h2 align="left">Technical solution</h2>
 Our project is based on 
 
+<h2 align="left">Project Theme</h2>
+Insurance, infrastructure, finance 
+
+<h2 align="left">Project Bounties</h2>
+We're applying for Chainlink Bounty 2 (Best usage of Chainlink Functions), Chainlink Bounty 3 (Best usage of other Chainlink services), and Graph Bounty 1 (Best New Subgraph). 
+
+<h2 align="left">Slide deck and presentation</h2>
+
+<h2 align="left">Deployed Smart Contract Address</h2>
+GhostFactory: 0x0057142698fB40D5BBfa4A1332C05F581D0fF1D2
+GhostPolicy: 0x0f150005E5134F0bC328B16bAE541BC11f110D5d
+
+<h2 align="left">Deployed to other platforms</h2>
+We've deployed our Subgraph onto Subgraph Studio so that it can be used for queries. 
+
+<h2 align="left">Additional information</h2>
+This is not part of any past project that any of us have worked on in the past. We started this project when the hackathon began. 
 
 
 
