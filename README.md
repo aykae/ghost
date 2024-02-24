@@ -27,12 +27,11 @@ Our project falls broadly within a DeFi theme, but we are more specifically doin
 We're applying for Chainlink Bounty 2 (Best usage of Chainlink Functions), Chainlink Bounty 3 (Best usage of other Chainlink services), and Graph Bounty 1 (Best New Subgraph). 
 
 <h2 align="left">Slide deck and presentation 📹</h2>
-(Link to YouTube Video)[https://youtu.be/uU0g-17JhG4]
+[Watch the Demo Video](https://youtu.be/uU0g-17JhG4)
 
 <h2 align="left">Deployed Smart Contract Address 📍</h2>
 GhostFactory: 0x0057142698fB40D5BBfa4A1332C05F581D0fF1D2
 GhostPolicy: 0x0f150005E5134F0bC328B16bAE541BC11f110D5d
-Ghost
 
 <h2 align="left">Deployed to other platforms</h2>
 We've deployed our Subgraph onto Subgraph Studio so that it can be used for queries. 
