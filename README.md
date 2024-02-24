@@ -27,6 +27,7 @@ Our project falls broadly within a DeFi theme, but we are more specifically doin
 We're applying for Chainlink Bounty 2 (Best usage of Chainlink Functions), Chainlink Bounty 3 (Best usage of other Chainlink services), and Graph Bounty 1 (Best New Subgraph). 
 
 <h2 align="left">Slide deck and presentation 📹</h2>
+
 [Watch the Demo Video](https://youtu.be/uU0g-17JhG4)
 
 <h2 align="left">Deployed Smart Contract Address 📍</h2>
