@@ -9,6 +9,7 @@ export const Header: React.FC = () => {
     <AppBar position="static">
       <Toolbar>
         <Box sx={{ width: '33%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
+          <img src={logo} alt="Logo" style={{ height: 60, paddingTop: '20px', paddingBottom: '20px' }}/>
           {/* Use Link component to create a clickable link to '/home' */}
           <Button color="inherit" component={Link} to="/home">
             All Policies
@@ -23,7 +24,6 @@ export const Header: React.FC = () => {
         </Box>
         <Box sx={{ width: '33%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <Typography variant="h6" component="div" sx={{ textAlign: 'center' }}>
-          <img src={logo} alt="Logo" style={{height:75}}/>
           </Typography>
         </Box>
         <Box sx={{ width: '33%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
