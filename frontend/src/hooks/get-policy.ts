@@ -12,5 +12,6 @@ export const getPolicy = async (id: string): Promise<Policy> => {
       estimatedClaim: 3,
       premium: 100,
       policyHolders: 3,
+      health: 100,
    } as Policy;
 };

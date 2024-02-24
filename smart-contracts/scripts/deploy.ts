@@ -1,6 +1,7 @@
 import { ethers } from "hardhat";
 import { GhostFactory, GhostFactory__factory } from '../typechain-types';
 import ghostFactoryAbi from '../artifacts/contracts/GhostFactory.sol/GhostFactory.json';
+import ghostPolicyAbi from '../artifacts/contracts/GhostPolicy.sol/GhostPolicy.json';
 import { Contract } from "ethers";
 
 async function deployLock() {
@@ -32,15 +33,40 @@ async function deployFactory() {
 	return ghostFactory;
 }
 
+async function deployPolicy() {
+	await deployFactory();
+
+	const [signer] = await ethers.getSigners();
+
+	let gf = new ethers.Contract(GHOST_FACTORY_ADDRESS, ghostFactoryAbi.abi, signer);
+	await gf.createPolicy();
+
+}
+
+async function getPolicyData() {
+	console.log('MetaMask is not installed, using local network');
+	const [signer] = await ethers.getSigners();
+	const GHOST_FACTORY_ADDRESS = '0x';
+
+	let gf = new ethers.Contract(GHOST_FACTORY_ADDRESS, ghostFactoryAbi.abi, signer);
+
+	const policyAddy = await gf.getPolicyholderPolicy(signer.getAddress());
+	let policy = new ethers.Contract(policyAddy, ghostPolicyAbi.abi, signer);
+	const policyData = await policy.getPolicyData();
+
+	console.log(policyData);
+}
+
 async function main() {
 
-	const [signer0, signer1] = await ethers.getSigners();
-	let ghostFactory = await deployFactory();
+	// const [signer0, signer1, signer2, signer3] = await ethers.getSigners();
+	// const signers = [signer0, signer1, signer2, signer3];
+	// let ghostFactory = await deployFactory();
 
-	let gf = new ethers.Contract(ghostFactory.target, ghostFactoryAbi.abi, signer0);
-	await gf.createPolicy();
-	const p0 = await gf.getPolicy();
-	console.log(p0);
+	// for (let i = 0; i < 5; i++) {
+	// 	let gf = new ethers.Contract(ghostFactory.target, ghostFactoryAbi.abi, signers[i]);
+	// 	await gf.createPolicy();
+	// }
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -55,6 +55,10 @@ contract GhostPolicy {
         //TODO: add fee init
     }
 
+    function getPolicyData() external view returns (address, uint, uint, uint, uint, uint, uint, uint, uint, uint, uint) {
+        return (creator, fee, minPremium, maxPremium, poolTotal, health, numClaims, totalClaimFunds, premiumFactor, amountPaidFactor, numPolicyholders);
+    }
+
     function getHealth() external view returns (uint) {
         return health;
     }
