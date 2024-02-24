@@ -14,7 +14,7 @@ We also give users the opportunity to make their own policies because we believe
 
 On the front-end, we have used React to 
 
-<h2 align="left">Country/region</h2> 🇺🇸/(🇨🇦?)
+<h2 align="left">Country/region 🇺🇸/(🇨🇦?)</h2>
 We're all currently based in Philadelphia, USA, but fun fact: three of us actually lived in Canada at some point as well!
 
 <h2 align="left">Technical solution</h2>
