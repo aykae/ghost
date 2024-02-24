@@ -3,6 +3,7 @@ pragma solidity ^0.8.24;
 
 // Uncomment this line to use console.log
 // import "hardhat/console.sol";
+import './GhostClaimVerifier.sol';
 
 contract GhostPolicy {
 
@@ -21,6 +22,11 @@ contract GhostPolicy {
     uint public amountPaidFactor;
 
     struct Policyholder {
+
+        string firstName;
+
+        string lastName;
+
         bool isActive;
 
         uint premium;
@@ -33,8 +39,8 @@ contract GhostPolicy {
 
         uint riskScore;
 
-        //TODO:
-        //chainlinkFunction trigger;
+        address dependent;
+
     }
 
     uint numPolicyholders;
@@ -49,10 +55,12 @@ contract GhostPolicy {
         factory = msg.sender;
     }
 
-    function initialize(address _creator) external {
+    function initialize(address _creator, uint _fee, uint _minPremium, uint _maxPremium) external {
         require(msg.sender == factory, "Policy already initialized");
         creator = _creator;
-        //TODO: add fee init
+        fee = _fee;
+        minPremium = _minPremium;
+        maxPremium = _maxPremium;
     }
 
     function getPolicyData() external view returns (address, uint, uint, uint, uint, uint, uint, uint, uint, uint, uint) {
@@ -63,20 +71,18 @@ contract GhostPolicy {
         return health;
     }
 
-    function joinPolicy(uint premium) external payable {
-        //TODO:
-        // create Policyholder
-        // add dependents
-        // make first payment
-        // set timer for next month
+    function joinPolicy(string memory _firstName, string memory _lastName, address _dependent, uint _premium) external payable {
 
         require(policyholders[msg.sender].isActive == false, "Policyholder already exists");
         require(msg.value >= minPremium, "Premium payment must be greater than minimum premium");
         require(msg.value <= maxPremium, "Premium payment must be less than minimum premium");
-        require(msg.value == premium, "Premium payment must be equal to premium");
+        require(msg.value == _premium, "Premium payment must be equal to premium");
 
+        policyholders[msg.sender].firstName = _firstName;
+        policyholders[msg.sender].lastName = _lastName;
+        policyholders[msg.sender].dependent = _dependent;
         policyholders[msg.sender].isActive = true;
-        policyholders[msg.sender].premium = premium; //TODO: how do we set premiums
+        policyholders[msg.sender].premium = _premium;
         policyholders[msg.sender].premiumTime = block.timestamp + (30 * 24 * 60 * 60);
         policyholders[msg.sender].balance = 0;
         policyholders[msg.sender].riskScore = 0;
@@ -89,16 +95,13 @@ contract GhostPolicy {
         require(policyholders[msg.sender].balance > 0, "Policyholder must have a balance");
         require(msg.value <= policyholders[msg.sender].balance, "Premium must be less than or equal to policyholder balance");
 
-        getBalance(); //
+        getBalance();
 
         policyholders[msg.sender].amountPaid += msg.value;
         policyholders[msg.sender].balance -= msg.value;
 
-        //TODO: Fix Fee Calculation (decimals)
         poolTotal += msg.value * (1 - fee);
         payable(creator).transfer(msg.value * fee);
-
-        //TODO: adjust pool health
 
     }
 
@@ -111,13 +114,26 @@ contract GhostPolicy {
             policyholders[msg.sender].balance += policyholders[msg.sender].premium;
         }
 
-        //TODO: add account abstraction here and elsewhere
         return policyholders[msg.sender].balance;
+    }
+
+    struct LifeStruct {
+        address sender;
+        uint timestamp;
+        string firstName;
+        string lastName;
+        bool isDeceased;
     }
 
     function collectClaim() external payable {
         require(policyholders[msg.sender].balance == 0, "Claim funds are witheld until outstanding premium balance is paid");
         //require(pholderTriggers[msg.sender] == 1, "Policy event has not yet triggered")
+
+        //Verify claim is valid
+        GhostClaimVerifier gcv = new GhostClaimVerifier('0xbaB1602a8dF347C2B9dEC1753196168B98533543');
+        gcv.getDeceasedStatus(policyholders[msg.sender].firstName, policyholders[msg.sender].lastName);
+        LifeStruct memory life = gcv.getLife(policyholders[msg.sender].firstName, policyholders[msg.sender].lastName);
+        require(life.isDeceased, "Policyholder is not deceased");
 
         require((policyholders[msg.sender].premium * premiumFactor) + (policyholders[msg.sender].amountPaid * amountPaidFactor) <= poolTotal, "Insufficient funds in policy to pay claim");
         payable(msg.sender).transfer((policyholders[msg.sender].premium * premiumFactor) + (policyholders[msg.sender].amountPaid * amountPaidFactor));
@@ -125,11 +141,8 @@ contract GhostPolicy {
         numClaims++;
         numPolicyholders--;
 
-        //TODO: adjust pool health
 
-        //TODO: Remove policyholder from policy
         policyholders[msg.sender].isActive = false;
-        //policyholders[msg.sender] = ;    
     }
 
 }
