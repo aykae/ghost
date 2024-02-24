@@ -12,13 +12,13 @@ Traditional life insurance is frustrating, consisting of many phone calls and me
 
 We also give users the opportunity to make their own policies because we believe that the best policy will win through democratization, but our suggested price of the insurance is calculated optimally. We’ve fine-tuned a standard select survival model that calculates the probability of death based on parameters like age and gender. The price is then calculated by discounting back the payout, multiplying by the probability of death, expected interest rates and calculating NPV. We expect many users to want to create their own insurance policies, so we have created a Subgraph to be able to index the insurance policies given the wallet address of the user who has signed the contract in order to query and sort the subgraph based on the health of the protocol and total value of the pool to show plans that are more secure on top and allow users to filter through different plans that are created in real-time. 
 
-On the front-end, we used React and typescript to create the website and connected it to our backend and smart contracts using Ethers.js. Our project involves three smart contracts, the Forest as well as two others Ghost Policy and Ghost Claim Verifier (more details can be found in the technical solution section) which were both written in Solidity and deployed on the Sepolia. The graph components were written in GraphQL and typescript. In the future, we hope to be able to increase analytical capabilities on the subgraph and have more sophisticated risk modelling for insurance. We also envision our protocol expanding to accept more tokens as payment other than just Ethereum and offering a feature of allowing liquidity providers to deposit funds in the insurance policy without having to engage in the contract for a premium in return. 
+On the front-end, we used React and typescript to create the website and connected it to our backend and smart contracts using Ethers.js. Our project involves three smart contracts, the Forest as well as two others Ghost Policy and Ghost Claim Verifier which were both written in Solidity and deployed on the Sepolia. The graph components were written in GraphQL and typescript. In the future, we hope to be able to increase analytical capabilities on the subgraph and have more sophisticated risk modelling for insurance. We also envision our protocol expanding to accept more tokens as payment other than just Ethereum and offering a feature of allowing liquidity providers to deposit funds in the insurance policy without having to engage in the contract for a premium in return. 
 
 <h2 align="left">Country/region 🇺🇸/(🇨🇦?)</h2>
 We're all currently based in Philadelphia, USA, but fun fact: three of us actually lived in Canada at some point as well!
 
 <h2 align="left">Technical solution 🤓</h2>
-Our project is based on 
+Our Decentralized Life Insurance protocol, Ghost Protocol, is written in Solidity for EVM-compatible blockchains. Our protocol allows monthly premiums to be paid to policy contracts that are paid out based on user settings and payment behavior over the lifetime of the contract. Claims are verified using Chainlink Functions, which serve as an oracle for the SSDI (Social Security Death Index) API with which we check whether an insurance claim is valid. An account abstraction implementation allows a policyholder to nominate a dependent who may accept claim payout funds on their behalf.
 
 <h2 align="left">Project Theme 💸</h2>
 Our project falls broadly within a DeFi theme, but we are more specifically doing insurance on-chain and in a way healthcare as well due to life insurance. 
@@ -27,6 +27,7 @@ Our project falls broadly within a DeFi theme, but we are more specifically doin
 We're applying for Chainlink Bounty 2 (Best usage of Chainlink Functions), Chainlink Bounty 3 (Best usage of other Chainlink services), and Graph Bounty 1 (Best New Subgraph). 
 
 <h2 align="left">Slide deck and presentation 📹</h2>
+[Link to YouTube Video](https://youtu.be/uU0g-17JhG4)
 
 <h2 align="left">Deployed Smart Contract Address 📍</h2>
 GhostFactory: 0x0057142698fB40D5BBfa4A1332C05F581D0fF1D2
