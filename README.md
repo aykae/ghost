@@ -2,7 +2,7 @@
 
 Our project is **Ghost Protocol**, an EVM compatible dApp providing life insurance on-chain, allowing for increased speed, security, and flexibility of contracts. We are excited to bring other types of insurance other than those used for hedging tokens on blockchain and see potential in the growth of this project. 
 
-Here is a link to our tweet, which summarizes our project in a short-form if you would prefer to read it there: 
+Here is a link to our [tweet](https://twitter.com/aykae_r/status/1761416993973104703), which summarizes our project in a short-form if you would prefer to read it there.
 
 <h2 align="left">Brief Description 📖</h2>
 
