@@ -4,9 +4,8 @@ import {
     useSDK,
     useSignMessage,
 } from "@metamask/sdk-react-ui";
-import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 
-function AppReady() {
+function MetaMaskReady() {
     const {
         data: signData,
         isError: isSignError,
@@ -20,18 +19,7 @@ function AppReady() {
     const { isConnected } = useAccount();
 
     return (
-    <AppBar position="static" sx={{ borderRadius: '20px'}} elevation={0}> 
-        <Toolbar>
-          <Box sx={{ width: '33%', display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
-            <Button color="inherit">All Policies</Button>
-            <Button color="inherit">My Policies</Button>
-          </Box>
-          <Box sx={{ width: '33%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Typography variant="h6" component="div" sx={{ textAlign: 'center' }}>
-              My App
-            </Typography>
-          </Box>
-          <Box sx={{ width: '33%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+        <div>
           <MetaMaskButton theme={"dark"} color="white"></MetaMaskButton>
                 {isConnected && (
                     <>
@@ -47,20 +35,18 @@ function AppReady() {
                         </div>
                     </>
                 )}
-          </Box>
-        </Toolbar>
-      </AppBar>
+            </div>
     );
 }
 
-function App() {
+function MetaMask() {
     const { ready } = useSDK();
 
     if (!ready) {
         return <div>Loading...</div>;
     }
 
-    return <AppReady />;
+    return <MetaMaskReady />;
 }
 
-export default App;
+export default MetaMask;
