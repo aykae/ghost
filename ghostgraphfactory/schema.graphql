@@ -43,7 +43,7 @@ type TotalPool @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type Health {
+type Health @entity(immutable: true) {
   protocolId: ID!
   healthScore: Float!
   status: String!
