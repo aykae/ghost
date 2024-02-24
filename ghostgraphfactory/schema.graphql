@@ -1,0 +1,50 @@
+type PolicyCreated @entity(immutable: true) {
+  id: Bytes!
+  policyAddress: Bytes! # address
+  creator: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ClaimCollected @entity(immutable: true) {
+  id: Bytes!
+  pholder: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PremiumPaid @entity(immutable: true) {
+  id: Bytes!
+  pholder: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Health @entity(immutable: true) {
+  id: Bytes!
+  pholder: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TotalPool @entity(immutable: true) {
+  id: Bytes!
+  pholder: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Health @entity(immutable: true) {
+  protocolId: ID!
+  healthScore: Float!
+  status: String!
+}

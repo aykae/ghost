@@ -1,0 +1,14 @@
+{
+  "sepolia": {
+    "GhostFactory": {
+      "address": "0x0057142698fB40D5BBfa4A1332C05F581D0fF1D2",
+      "startBlock": 5351866
+    }
+  }, 
+  "sepolia": {
+    "GhostPolicy": {
+      "address": "0x0f150005E5134F0bC328B16bAE541BC11f110D5d",
+      "startBlock": 5351862
+    }
+  }
+}
