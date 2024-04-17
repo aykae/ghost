@@ -14,7 +14,7 @@ We also give users the opportunity to make their own policies because we believe
 
 On the front-end, we used React and Typescript to create the website and connected it to our backend and smart contracts using Ethers.js. Our project involves three smart contracts, the Forest as well as two others Ghost Policy and Ghost Claim Verifier which were both written in Solidity and deployed on the Sepolia. The graph components were written in GraphQL and Typescript. In the future, we hope to be able to increase analytical capabilities on the subgraph and have more sophisticated risk modelling for insurance. We also envision our protocol expanding to accept more tokens as payment other than just Ethereum and offering a feature of allowing liquidity providers to deposit funds in the insurance policy without having to engage in the contract for a premium in return. 
 
-<h2 align="left">Country/region 🇺🇸/(🇨🇦?)</h2>
+<h2 align="left">Country/region 🇺🇸</h2>
 We're all currently based in Philadelphia, USA, but fun fact: three of us actually lived in Canada at some point as well!
 
 <h2 align="left">Technical solution 🤓</h2>
